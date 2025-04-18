@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Recommender Ecommerce - ebuiza</title>
+    <style>
+      /* General Body Styling */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #faf9f6; /* Very Light Beige */
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        background-color: #ffb6c1; /* Light Pink */
+        color: white;
+        padding: 40px 0;
+        margin: 0;
+        font-size: 2.5em;
+        border-bottom: 3px solid #ff7a8c; /* Soft Red */
+      }
+
+      h2 {
+        color: #ff7a8c; /* Soft Red */
+        margin: 20px 0;
+        font-size: 2.2em;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 1.8em;
+        color: #ff7a8c; /* Soft Red */
+        margin-bottom: 15px;
+        text-transform: uppercase;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      li {
+        background-color: #f9e4e4; /* Very Light Pink */
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        padding: 20px;
+      }
+
+      li:hover {
+        background-color: #ffb6c1; /* Light Pink */
+        transform: translateY(-5px);
+      }
+
+      h3 {
+        color: #6a4e72; /* Lavender */
+        font-size: 1.6em;
+        margin: 0;
+        padding-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .price {
+        color: #ff7a8c; /* Soft Red */
+        font-size: 1.3em;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .product-description {
+        color: #6a4e72; /* Lavender */
+        font-size: 1em;
+        margin: 15px 0;
+      }
+
+      .product-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .product-info p {
+        font-size: 1.1em;
+        font-weight: bold;
+      }
+
+      .button {
+        background-color: #e8a0b8; /* Light Peach */
+        color: #fff;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 15px;
+        display: inline-block;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #ff7a8c; /* Soft Red */
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          width: 95%;
+        }
+
+        ul {
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        }
+
+        li {
+          padding: 15px;
+        }
+
+        h3 {
+          font-size: 1.3em;
+        }
+
+        .price {
+          font-size: 1.1em;
+        }
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: #ffb6c1; /* Light Pink */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1em;
+        margin-top: 40px;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>AI Recommender Ecommerce</h1>
+
+    <div class="container">
+      <h2 class="section-title">All Products</h2>
+      <ul>
+        {% for product in products %}
+        <li>
+          <h3>{{ product.name }}</h3>
+          <div class="product-info">
+            <p class="price">₱ {{ product.price }}</p>
+            <a href="#" class="button">View Product</a>
+          </div>
+          <p class="product-description">
+            <strong>Description:</strong> {{ product.description }}
+          </p>
+          <p><strong>Category:</strong> {{ product.category }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <!-- Recommended Products Section -->
+      <h2 class="section-title">Recommended Products</h2>
+      <ul>
+        {% for product in recommended_products %}
+        <li>
+          <h3>{{ product.name }}</h3>
+          <div class="product-info">
+            <p class="price">₱ {{ product.price }}</p>
+            <a href="#" class="button">View Product</a>
+          </div>
+          <p class="product-description">
+            <strong>Description:</strong> {{ product.description }}
+          </p>
+          <p><strong>Category:</strong> {{ product.category }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2025 AI Recommender Ecommerce. All rights reserved.</p>
+      <p style="text-align: center">Katelyn Anne Ebuiza</p>
+    </footer>
+  </body>
+</html>
